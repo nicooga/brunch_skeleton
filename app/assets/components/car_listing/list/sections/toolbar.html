@@ -1,0 +1,17 @@
+
+<md-toolbar>
+  <div layout="row" class="md-toolbar-tools">
+    <md-input-container md-no-float="md-no-float" ng-class="{&quot;font-size-15 flex&quot;: ctrl.$mdMedia(&quot;xs&quot;)}" class="md-input-container-white md-select-no-label">
+      <yv-select ng-model="ctrl.queryParams.carBrandId" search="true" include-blank="true" options-resolver="ctrl.getCarBrands()" option-value="$option.id" option-label="$option.name" on-change="ctrl.search({redirect: true})" placeholder="Marca"></yv-select>
+    </md-input-container>
+    <md-icon md-svg-src="/images/icons/arrow_right.svg" ng-if="ctrl.queryParams.carBrandId" class="white-icon"></md-icon>
+    <md-input-container md-no-float="md-no-float" ng-if="ctrl.queryParams.carBrandId" ng-class="{&quot;font-size-15 flex&quot;: ctrl.$mdMedia(&quot;xs&quot;)}" class="md-input-container-white md-select-no-label">
+      <yv-select ng-model="ctrl.queryParams.carModelId" search="true" options-resolver="ctrl.getCarModels()" resolve-options-on="ctrl.queryParams.carBrandId" option-value="$option.id" option-label="$option.name" on-change="ctrl.search()" placeholder="Modelo" ng-class="{&quot;font-size-15&quot;: ctrl.$mdMedia(&quot;xs&quot;)}"></yv-select>
+    </md-input-container><span flex="flex" hide-xs="hide-xs"></span><small hide-xs="hide-xs" ng-if="ctrl.filtersCount === 1" translate="translate">{{ ctrl.filtersCount }} FILTRO ACTIVOS</small><small hide-xs="hide-xs" ng-if="ctrl.filtersCount &gt; 1" translate="translate">{{ ctrl.filtersCount }} FILTROS ACTIVOS</small>
+    <md-button hide-xs="hide-xs" ng-if="ctrl.filtersCount" translate="translate" ng-click="ctrl.resetSearch()" class="md-raised">Limpiar</md-button>
+    <md-button hide-xs="hide-xs" ng-click="ctrl.toggleFilters()" class="md-icon-button md-primary white-icon">
+      <md-tooltip md-direction="left">Filtros</md-tooltip>
+      <md-icon md-svg-src="/images/icons/filter.svg"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>

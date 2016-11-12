@@ -1,0 +1,21 @@
+
+<md-fab-speed-dial md-open="::true" md-direction="left">
+  <md-fab-trigger>
+    <md-button ng-click="$ctrl.$yvChatCtrl.toggle()" ng-disabled="$ctrl.$yvChatCtrl.saving" class="md-fab md-primary white-icon">
+      <md-icon ng-if="!$ctrl.$yvChatCtrl.active" md-svg-src="/images/icons/chat.svg"></md-icon>
+      <md-tooltip ng-if="!$ctrl.$yvChatCtrl.active" md-direction="top"><span translate="translate">Chat</span></md-tooltip>
+      <md-icon ng-if="$ctrl.$yvChatCtrl.active" md-svg-src="/images/icons/remove.svg"></md-icon>
+      <md-tooltip ng-if="$ctrl.$yvChatCtrl.active" md-direction="top"><span translate="translate">Cerrar chat</span></md-tooltip>
+    </md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+    <md-button ng-click="$ctrl.scrollToPurchaseRequestForm()" class="md-fab md-raised md-mini md-accent white-icon">
+      <md-icon md-svg-src="/images/icons/mail.svg"></md-icon>
+      <md-tooltip md-direction="top"><span translate="translate">Contactar</span></md-tooltip>
+    </md-button>
+    <md-button href="tel:08101226688" hide-gt-xs="hide-gt-xs" class="md-fab md-raised md-mini white-icon green-button">
+      <md-icon md-svg-src="/images/icons/phone.svg"></md-icon>
+      <md-tooltip md-direction="top"><span translate="translate" ng-if="$ctrl.carListing.displayType !== &quot;Classic&quot;">Llamar al call center</span><span translate="translate" ng-if="$ctrl.carListing.displayType === &quot;Classic&quot;">Llamar al dueño</span></md-tooltip>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>

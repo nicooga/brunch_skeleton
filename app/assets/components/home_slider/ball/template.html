@@ -1,0 +1,5 @@
+
+<div block="yv-home-slider" elem="ball" mod="    left:  yvHomeSliderBallCtrl.position === &quot;left&quot;;    right: yvHomeSliderBallCtrl.position === &quot;right&quot;  " md-ink-ripple="md-ink-ripple" ng-click="yvHomeSliderBallCtrl.toggleActiveSection()" ng-mouseenter="yvHomeSliderBallCtrl.toggleActiveSection()" ng-mouseleave="yvHomeSliderBallCtrl.unlockToggling()" ng-style="{&quot;background-color&quot;: yvHomeSliderBallCtrl.color}" class="md-whiteframe-z1">
+  <div elem="ball__text" mod="center" ng-if="yvHomeSliderBallCtrl.isSectionActive()">Volver</div>
+  <div elem="ball__text" mod="      right: yvHomeSliderBallCtrl.position === &quot;left&quot;;      left:  yvHomeSliderBallCtrl.position === &quot;right&quot;    " ng-if="!yvHomeSliderBallCtrl.isSectionActive()" ng-bind-html="yvHomeSliderBallCtrl.label"></div>
+</div>

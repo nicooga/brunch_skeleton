@@ -1,0 +1,16 @@
+
+<div layout="row" ng-class="{    &quot;yv-home-slider__wrapper--left-active&quot;: yvHomeSliderCtrl.activeSection === &quot;left&quot;,     &quot;yv-home-slider__wrapper--right-active&quot;: yvHomeSliderCtrl.activeSection === &quot;right&quot;   }" class="yv-home-slider__wrapper">
+  <div flex="80" class="yv-home-slider__section yv-home-slider__section--left"></div>
+  <div flex="100" layout="row" layout-align="center center" class="yv-home-slider__section yv-home-slider__section--center">
+    <div md-ink-ripple="md-ink-ripple" ng-click="yvHomeSliderCtrl.toggleActiveSection('left')" ng-mouseenter="yvHomeSliderCtrl.toggleActiveSection('left')" ng-mouseleave="yvHomeSliderCtrl.unlockToggling()" class="yv-home-slider__ball yv-home-slider__ball--left md-whiteframe-z1">
+      <div ng-if="yvHomeSliderCtrl.activeSection === &quot;left&quot;" class="yv-home-slider__ball__text yv-home-slider__ball__text--center">Volver</div>
+      <div ng-if="yvHomeSliderCtrl.activeSection !== &quot;left&quot;" class="yv-home-slider__ball__text yv-home-slider__ball__text--right">Vender<br/>Mi Auto</div>
+    </div>
+    <div md-ink-ripple="md-ink-ripple" ng-click="yvHomeSliderCtrl.toggleActiveSection('right')" ng-mouseenter="yvHomeSliderCtrl.toggleActiveSection('right')" ng-mouseleave="yvHomeSliderCtrl.unlockToggling()" class="yv-home-slider__ball yv-home-slider__ball--right md-whiteframe-z1">
+      <div ng-if="yvHomeSliderCtrl.activeSection === &quot;right&quot;" class="yv-home-slider__ball__text yv-home-slider__ball__text--center">Volver</div>
+      <div ng-if="yvHomeSliderCtrl.activeSection !== &quot;right&quot;" class="yv-home-slider__ball__text yv-home-slider__ball__text--left">Comprar<br/>un Auto</div>
+    </div>
+    <h1>Autos de Dueño a Dueño</h1>
+  </div>
+  <div flex="80" class="yv-home-slider__section yv-home-slider__section--right"></div>
+</div>

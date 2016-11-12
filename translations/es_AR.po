@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_AR\n"
+
+#: public/components/car_listing/form/template.html:60
+msgid "Color"
+msgstr "Color"
+
+#: public/app.js:256
+msgid "beige"
+msgstr "Beige"
+
+#: public/app.js:256
+msgid "black"
+msgstr "Negro"
+
+#: public/app.js:256
+msgid "blue"
+msgstr "Azul"
+
+#: public/app.js:256
+msgid "brown"
+msgstr "Marrón"
+
+#: public/app.js:256
+msgid "burgundy"
+msgstr "Borgoña"
+
+#: public/app.js:256
+msgid "champagne"
+msgstr "Chanpagne"
+
+#: public/app.js:260
+msgid "diesel"
+msgstr "Diesel"
+
+#: public/app.js:260
+msgid "gas"
+msgstr "Gas"
+
+#: public/app.js:256
+msgid "gold"
+msgstr "Oro"
+
+#: public/app.js:256
+msgid "gray"
+msgstr "Gris"
+
+#: public/app.js:256
+msgid "green"
+msgstr "Verde"
+
+#: public/app.js:256
+msgid "light_blue"
+msgstr "Celeste"
+
+#: public/app.js:260
+msgid "naphta"
+msgstr "Nafta"
+
+#: public/app.js:256
+msgid "pink"
+msgstr "Rosa"
+
+#: public/app.js:256
+msgid "red"
+msgstr "Rojo"
+
+#: public/app.js:256
+msgid "silver"
+msgstr "Plateado"
+
+#: public/app.js:256
+msgid "white"
+msgstr "Blanco"

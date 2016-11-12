@@ -1,0 +1,9 @@
+
+<div block="yv-blackboard" mod="active: $ctrl.active" ng-if="$ctrl.active" layout-fill="layout-fill">
+  <div layout-fill="layout-fill" class="position-relative">
+    <md-button elem="close-button" ng-click="$ctrl.hide()" class="square-icon-button transparent-button">
+      <md-icon md-svg-src="/images/icons/remove.svg" class="white-icon"></md-icon>
+    </md-button>
+    <div ng-transclude="ng-transclude" layout-fill="layout-fill"></div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+
+<div block="yv-home-slider">
+  <div elem="wrapper" mod="    &quot;left-active&quot;:  yvHomeSliderCtrl.activeSection === &quot;left&quot;;    &quot;right-active&quot;: yvHomeSliderCtrl.activeSection === &quot;right&quot;  " layout="row">
+    <div elem="section" mod-once="left">
+      <div elem="section__content" mod-once="left">
+        <md-content flex="flex" layout-gt-md="row" layout-align-gt-md="center stretch" layout-fill-gt-md="layout-fill-gt-md" layout-gt-sm="column" layout-align-gt-sm="center center">
+          <yv-home-slider-card flex-gt-md="33" title="Classic" headline="Aviso gratis" subhead="Vendé tu auto más rápido con crédito" items="[            &quot;Publicá tu auto en 3 simples pasos&quot;,            &quot;Vendé tu auto con crédito más rápido&quot;,            &quot;Ubicación del auto por su calidad&quot;,            &quot;Aviso gratis&quot;,            &quot;Vendé tu auto más rápido con crédito&quot;          ]" shade="3" main-sref="[&quot;carListings.new&quot;, {type: &quot;Classic&quot;}]"></yv-home-slider-card>
+          <yv-home-slider-card flex-gt-md="33" headline="El Angel esta con vos" title="Full Service" subhead="Atendemos tus llamados" items="[            &quot;El Ángel® te acompaña en todo el proceso de venta&quot;,            &quot;Atendemos todas las consultas telefónicas y mails por vos&quot;,            &quot;Obtene el mejor valor de venta&quot;,            &quot;El Ángel® está con vos&quot;,            &quot;Atendemos tus llamados&quot;          ]" shade="2" main-sref="[&quot;carListings.new&quot;, {type: &quot;FullService&quot;}]"></yv-home-slider-card>
+          <yv-home-slider-card flex-gt-md="33" title="Full Service &lt;strong&gt;Plus&lt;/strong&gt;" headline="Venta garantizada" subhead="El Angel esta con vos" items="[            &quot;Garantía de venta&quot;,            &quot;El Ángel® te acompaña en todo el proceso de venta&quot;,            &quot;Atendemos todas las consultas telefónicas y mails por vos&quot;,            &quot;Venta garantizada&quot;,            &quot;El Ángel® está con vos&quot;          ]" shade="1" main-sref="[&quot;carListings.new&quot;, {type: &quot;FullServicePlus&quot;}]"></yv-home-slider-card>
+        </md-content>
+      </div>
+    </div>
+    <div elem="section" mod="center" layout="row" layout-align="center center">
+      <yv-home-slider-ball slider-controller="yvHomeSliderCtrl" position="left" label="Vender&lt;br/&gt;Mi Auto" color="{{:: yvHomeSliderCtrl.primaryColor }}"></yv-home-slider-ball>
+      <yv-home-slider-ball slider-controller="yvHomeSliderCtrl" position="right" label="Comprar&lt;br/&gt;Un Auto" color="{{:: yvHomeSliderCtrl.accentColor }}"></yv-home-slider-ball>
+      <h1>Autos de Dueño a Dueño</h1>
+    </div>
+    <div elem="section" mod-once="right">
+      <div elem="section__content" mod-once="right">
+        <div layout="column" layout-align="center stretch">
+          <div layout="row" layout-fill="layout-fill">
+            <yv-home-slider-card flex="33" title="¡Promo de lanzamiento!" headline="Comprando un auto FullService llevate &lt;strong&gt;GRATIS&lt;/strong&gt;" items="[              &quot;Un tanque lleno de nafta V-Power&quot;,              &quot;Un mes de seguro gratis&quot;            ]" shade="1" show-actions="false"></yv-home-slider-card>
+            <yv-home-slider-card flex="33" title="Avisos FullService" headline="¡Compra con grantías!" items="[              &quot;Exámen clínico del auto&quot;,              &quot;El Àngel te acompaña, mas seguridad&quot;,              &quot;Transferencia de domiño certificada&quot;,              &quot;Pagá con seguridad. Garantía de pago&quot;,              &quot;7 días para devolver el auto&quot;            ]" shade="2" show-actions="false"></yv-home-slider-card>
+            <yv-home-slider-card flex="33" title="Avisos Classic" items="[              &quot;De dueño a dueño, siempre&quot;,              &quot;Crédito pre aprobado&quot;,              &quot;Auto gestión de la operación&quot;            ]" shade="3" show-actions="false"></yv-home-slider-card>
+          </div>
+          <md-button class="md-raised md-accent">Ver Autos</md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

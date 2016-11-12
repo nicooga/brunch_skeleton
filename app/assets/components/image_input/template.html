@@ -1,0 +1,26 @@
+
+<div block="yv-image-input">
+  <md-button ng-hide="yvImageInputCtrl.hasImage()" elem="input" layout-fill="layout-fill" layout-align="center center" accept="image/*" ngf-drop="yvImageInputCtrl.handleUpload($files)" ngf-pattern="'image/*'" ngf-resize="{width: 1024, height: 578}" ngf-select="yvImageInputCtrl.handleUpload($files)" class="padding-0">
+    <md-icon ng-if="!yvImageInputCtrl.saving" md-svg-src="/images/icons/add_photo.svg"></md-icon>
+    <md-progress-circular ng-if="yvImageInputCtrl.saving" layout-align="center center"></md-progress-circular>
+  </md-button>
+  <md-menu ng-if="yvImageInputCtrl.hasImage()">
+    <md-button layout-fill="layout-fill" ng-click="$mdOpenMenu($event)" class="md-raised padding-0"><img layout-fill="layout-fill" ng-src="{{ yvImageInputCtrl.image.file.url }}" class="object-fit-cover"/>
+      <md-button class="md-raised md-icon-button absolutely-centered-icon-button">
+        <md-icon md-svg-src="/images/icons/edit.svg" md-menu-origin="md-menu-origin"></md-icon>
+      </md-button>
+    </md-button>
+    <md-menu-content width="4">
+      <md-menu-item>
+        <md-button flex="flex" ng-click="yvImageInputCtrl.triggerFileInput()">
+          <md-icon md-menu-align-target="md-menu-align-target" md-svg-src="/images/icons/edit.svg"></md-icon>Cambiar
+        </md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button flex="flex" ng-click="yvImageInputCtrl.removeImage()">
+          <md-icon md-svg-src="/images/icons/trash.svg"></md-icon>Eliminar
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</div>

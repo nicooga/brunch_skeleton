@@ -1,0 +1,16 @@
+
+<div block="yv-chat" mod-once="fixed: $ctrl.fixed" md-whiteframe="1">
+  <div elem="container"></div>
+  <md-divider></md-divider>
+  <form layout="row" layout-align="center center" ng-submit="$ctrl.sendMessage()" class="full-width padding-right-8">
+    <md-button ng-click="$ctrl.triggerImageUpload()" class="md-icon-button">
+      <md-icon md-svg-src="/images/icons/camera.svg"></md-icon>
+    </md-button>
+    <md-input-container flex="flex">
+      <label translate="translate">Escribí un mensaje</label>
+      <input ng-model="$ctrl.message"/>
+    </md-input-container>
+  </form>
+  <md-divider></md-divider>
+  <div elem="actions-background"></div>
+</div>

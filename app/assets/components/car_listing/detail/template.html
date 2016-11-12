@@ -1,0 +1,36 @@
+
+<div block="yv-car-listing-detail" ng-init="    car           = $ctrl.carListing.car;     templatesPath = &quot;/components/car_listing/detail/templates&quot;   " layout-fill="layout-fill" layout="column" class="position-relative">
+  <div ng-include="templatesPath + &quot;/toolbar.html&quot;"></div>
+  <md-content flex="flex" layout-gt-xs="row" yv-hide-toolbar-on-scroll="yv-hide-toolbar-on-scroll">
+    <div flex-sm="50" flex-md="66" flex-gt-md="75" class="position-relative">
+      <yv-car-listing-carousel car-listing=":: $ctrl.carListing" fill-container=":: $ctrl.$mdMedia(&quot;gt-xs&quot;)"></yv-car-listing-carousel>
+      <div elem="actions" hide-xs="hide-xs" ng-include="templatesPath + &quot;/actions.html&quot;" class="absolute-bottom-right padding-5"></div>
+      <yv-chat ng-if=":: $ctrl.$mdMedia(&quot;gt-xs&quot;)" expose-controller-on=":: $ctrl.$yvChatCtrl"></yv-chat>
+    </div>
+    <md-divider></md-divider>
+    <div flex-sm="50" flex-md="33" flex-gt-md="25" md-whiteframe="5" layout="column">
+      <md-content id="car-listing-detail__sidenav" elem="sidenav" flex-gt-sm="flex-gt-sm" yv-hide-toolbar-on-scroll="yv-hide-toolbar-on-scroll" layout="column">
+        <div hide-gt-xs="hide-gt-xs" ng-bind=":: $ctrl.carListing.price | currency : &quot;$&quot; : 0 " class="md-display-1 text-align-center margin-5"></div>
+        <md-divider hide-gt-xs="hide-gt-xs"></md-divider>
+        <div ng-include="templatesPath + &quot;/details.html&quot;"></div>
+        <md-divider ng-if="car.clinicExam"></md-divider>
+        <div ng-if="car.clinicExam" ng-include="templatesPath + &quot;/clinic_exam.html&quot;"></div>
+        <md-divider></md-divider>
+        <div>
+          <div layout="row">
+            <md-button flex="flex" ui-sref="creditCalculator" translate="translate" class="md-accent">Créditos</md-button>
+            <md-button flex="flex" ui-sref="insurance" translate="translate" class="md-accent">Seguros</md-button>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div ng-include="templatesPath + &quot;/similar_cars.html&quot;"></div>
+        <md-divider></md-divider>
+        <yv-purchase-request-form ng-if="$ctrl.showPurchaseRequestForm" on-save="$ctrl.afterPurchaseRequestSave()"></yv-purchase-request-form>
+        <div id="car-listing-detail__contact-info" elem="contact-info" ng-if="$ctrl.showContactInfo" ng-include="templatesPath + &quot;/contact_info.html&quot;"></div>
+      </md-content>
+      <div elem="actions-spacer" hide-gt-xs="hide-gt-xs"></div>
+    </div>
+  </md-content>
+  <yv-chat ng-if=":: $ctrl.$mdMedia(&quot;xs&quot;)" expose-controller-on=":: $ctrl.$yvChatCtrl"></yv-chat>
+  <div elem="actions" ng-include="templatesPath + &quot;/actions.html&quot;" hide-gt-xs="hide-gt-xs" layout="row" layout-align="center center" class="fixed-bottom-right full-width"></div>
+</div>

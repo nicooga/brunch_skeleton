@@ -1,0 +1,37 @@
+{
+  "name": "yavende-front",
+  "description": "Description",
+  "author": "Your Name",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:yavende_developers/front.git"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production",
+    "extract-translations": "./node_modules/angular-gettext-cli/bin/gettext --files './public/**/*.+(js|html)' --dest /tmp/extract.pot",
+    "compile-translations": "angular-gettext-cli --compile --files './translations/*.po' --dest app/translations.js --format javascript --module YaVendeFront",
+    "build-translations": "npm run extract-translations && npm run compile-translations"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "angular-ui-router": "^0.3.1"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2.0.0",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-es2017": "^6.16.0",
+    "brunch": "^2.0.0",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.0.0",
+    "jade-brunch": "^2.0.0",
+    "javascript-brunch": "^2.0.0",
+    "static-jade-brunch": "^2.0.0",
+    "stylus-brunch": "^2.7.2",
+    "uglify-js-brunch": "^2.0.0"
+  }
+}

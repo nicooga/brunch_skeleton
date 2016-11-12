@@ -1,0 +1,11 @@
+
+<div block="yv-gallery" mod="active: $ctrl.active">
+  <yv-carousel fill-container="true">
+    <slick dots="false" arrows="false" layout-fill="layout-fill">
+      <div ng-repeat="src in $ctrl.images"><img layout-fill="layout-fill" src="{{:: src }}" class="object-fit-contain"/></div>
+    </slick>
+  </yv-carousel>
+  <md-button elem="close-button" ng-click="$ctrl.hide()" class="white-icon md-icon-button">
+    <md-icon md-svg-src="/images/icons/remove.svg" class="icon-background"></md-icon>
+  </md-button>
+</div>

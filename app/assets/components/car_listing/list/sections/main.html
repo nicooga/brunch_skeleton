@@ -1,0 +1,41 @@
+
+<div layout-fill="layout-fill" layout="column" layout-align="start stretch" class="position-relative">
+  <div ng-include="&quot;/components/car_listing/list/sections/toolbar.html&quot;"></div>
+  <md-content flex="flex" layout="row" layout-wrap="layout-wrap" ng-if="ctrl.carListings.length" yv-hide-toolbar-on-scroll="yv-hide-toolbar-on-scroll" yv-infinite-scroll="ctrl.getNextPage()" yv-infinite-scroll-if="      !ctrl.carListings ||       ctrl.this.saving ||       ctrl.queryParams.page &gt;= ctrl.totalPages     " class="position-relative">
+    <md-progress-linear md-mode="indeterminate" ng-if="ctrl.saving" class="md-accent absolute-top"></md-progress-linear>
+    <div flex-xs="100" flex-gt-xs="50" flex-grow="flex-grow" ng-repeat-start="carListing in ctrl.carListings">
+      <yv-car-listing-card car-listing="carListing"></yv-car-listing-card>
+    </div>
+    <div ng-repeat-end="ng-repeat-end" flex="100" ng-if="ctrl.shouldShowBanner($index)">
+      <yv-call-to-action ng-if="$index === 3" locale-key="sellACar"></yv-call-to-action>
+      <yv-call-to-action ng-if="$index === 7" locale-key="buyACar"></yv-call-to-action>
+      <yv-call-to-action ng-if="$index === 11" locale-key="insurance"></yv-call-to-action>
+      <yv-call-to-action ng-if="$index === 15" locale-key="howItWorks"></yv-call-to-action>
+    </div>
+  </md-content>
+  <md-content flex="flex" layout="row" layout-xs="column" layout-align="center center" layout-padding="layout-padding" ng-if="!ctrl.carListings.length &amp;&amp; !ctrl.saving">
+    <div translate="translate" class="text-align-center">No encontramos autos que coincidan con los criterios de búsqueda</div>
+    <md-button ng-click="ctrl.resetSearch()" translate="translate">Limpiar Filtros</md-button>
+  </md-content>
+  <yv-chat fixed="true" expose-controller-on=":: ctrl.$yvChatCtrl"></yv-chat>
+  <div layout="row" layout-align="end end" class="absolute-bottom-right">
+    <md-fab-speed-dial md-open="::true" md-direction="left">
+      <md-fab-trigger>
+        <md-button hide-gt-xs="hide-gt-xs" ng-click="ctrl.toggleFilters()" class="md-fab white-icon md-primary">
+          <md-tooltip md-direction="left" ng-if="ctrl.filtersCount === 0" md-auto-hide="false"><span translate="translate">Filtros</span></md-tooltip>
+          <md-tooltip md-direction="left" ng-if="ctrl.filtersCount === 1" md-auto-hide="false"><span translate="translate">{{ ctrl.filtersCount }} filtro activo</span></md-tooltip>
+          <md-tooltip ()md-direction="left" ng-if="ctrl.filtersCount &gt; 1" md-auto-hide="false"><span translate="translate">{{ ctrl.filtersCount }} filtros activos</span></md-tooltip>
+          <md-icon md-svg-src="/images/icons/filter.svg"></md-icon>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <md-button ng-click="ctrl.$yvChatCtrl.toggle()" ng-disabled="ctrl.$yvChatCtrl.saving" class="md-fab md-mini white-icon">
+          <md-icon ng-if="!ctrl.$yvChatCtrl.active" md-svg-src="/images/icons/chat.svg"></md-icon>
+          <md-tooltip ng-if="!ctrl.$yvChatCtrl.active" md-direction="top"><span translate="translate">Chat</span></md-tooltip>
+          <md-icon ng-if="ctrl.$yvChatCtrl.active" md-svg-src="/images/icons/remove.svg"></md-icon>
+          <md-tooltip ng-if="ctrl.$yvChatCtrl.active" md-direction="top"><span translate="translate">Cerrar chat</span></md-tooltip>
+        </md-button>
+      </md-fab-actions>
+    </md-fab-speed-dial>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+
+<md-select layout-fill="layout-fill" ng-init="ctrl = yvSelectCtrl" block="yv-select" ng-model="ctrl.selectedOption" ng-focus="ctrl.focusSearchInput()" ng-click="ctrl.focusSearchInput()" md-on-open="ctrl.focusSearchInput()" md-on-close="ctrl.onClose()" ng-change="ctrl.callOnChange()" ng-attr-md-container-class="{{:: ctrl.uniqueClass }}" ng-required="ctrl.required" ng-disabled="ctrl.disabled" placeholder="{{:: ctrl.placeholder }}">
+  <md-select-header elem="header" ng-if="ctrl.search">
+    <md-input-container>
+      <input elem="search-input" ng-model="ctrl.searchTerm" placeholder="Buscar..." ng-keydown="ctrl.onSearchKeyDown($event)"/>
+    </md-input-container>
+  </md-select-header>
+  <div elem="options-container">
+    <md-option value="" style="display: none"></md-option>
+    <md-option block="yv-select" elem="option" ng-repeat="o in ctrl.options| filter: ctrl.searchTerm" ng-value="o" ng-bind="ctrl.getOptionLabel(o)" ng-keydown="ctrl.onOptionsKeyDown($event)"></md-option>
+  </div>
+</md-select>

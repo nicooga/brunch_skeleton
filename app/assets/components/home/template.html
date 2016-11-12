@@ -1,0 +1,24 @@
+
+<md-content layout-fill="layout-fill" block="yv-home">
+  <yv-carousel fill-container="true" navigation-type="minimal" ng-if="!$root.hideMainToolbar">
+    <slick dots="false" arrows="false" autoplay="true" autoplay-speed="5000">
+      <div>
+        <yv-home-carousel-slide locale-key="sellACar"></yv-home-carousel-slide>
+      </div>
+      <div class="yv-home__video-slide">
+        <yv-home-carousel-slide locale-key="video" on-click="$ctrl.showVideo()" ng-if="!$ctrl.videoActive"></yv-home-carousel-slide>
+        <iframe ng-if="$ctrl.videoActive" src="{{:: $ctrl.videoUrl }}" width="{{:: $ctrl.videoFrameWidth }}" height="{{:: $ctrl.videoFrameHeight }}"></iframe>
+      </div>
+      <div>
+        <yv-home-carousel-slide locale-key="buyACar"></yv-home-carousel-slide>
+      </div>
+      <div>
+        <yv-home-carousel-slide locale-key="howItWorks"></yv-home-carousel-slide>
+      </div>
+      <div>
+        <yv-home-carousel-slide locale-key="insurance"></yv-home-carousel-slide>
+      </div>
+    </slick>
+  </yv-carousel>
+  <yv-car-listing-list></yv-car-listing-list>
+</md-content>

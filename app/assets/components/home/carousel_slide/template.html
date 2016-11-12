@@ -1,0 +1,19 @@
+
+<!-- Normal-->
+<div block="yv-home-carousel-slide" layout-fill="layout-fill" layout="row" layout-align="center center" ng-if=":: $ctrl.$mdMedia(&quot;gt-xs&quot;)" ng-click="$ctrl.callOnClick()"><img ng-src="{{ $ctrl.locale.img }}" class="padding-30"/>
+  <div flex="50" flex-lg="30" layout="column" class="padding-15">
+    <div ng-bind=":: $ctrl.locale.title" class="md-title text-align-center text-transform-uppercase"></div>
+    <md-divider></md-divider>
+    <p ng-bind=":: $ctrl.locale.desc" ng-class=":: {&quot;md-headline&quot;: $ctrl.$mdMedia(&quot;gt-sm&quot;)}" class="text-align-center"></p><span flex="flex"></span>
+    <md-button ng-bind=":: $ctrl.locale.buttonText" class="md-primary md-raised"></md-button>
+  </div>
+</div>
+<!-- Mobile-->
+<div block="yv-home-carousel-slide" layout-fill="layout-fill" layout="row" layout-align="center center" ng-if=":: $ctrl.$mdMedia(&quot;xs&quot;)" ng-click="$ctrl.callOnClick()"><img ng-src="{{:: $ctrl.locale.img }}" class="padding-15"/>
+  <div flex="flex" layout="column" class="padding-15">
+    <div ng-bind=":: $ctrl.locale.title" class="md-title text-align-center text-transform-uppercase"></div>
+    <md-divider></md-divider>
+    <p ng-bind=":: $ctrl.locale.desc" class="text-align-center"></p><span flex="flex"></span>
+    <md-button ng-bind=":: $ctrl.locale.buttonText" class="md-primary md-raised"></md-button>
+  </div>
+</div>

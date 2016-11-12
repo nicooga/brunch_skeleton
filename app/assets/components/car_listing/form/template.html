@@ -1,0 +1,138 @@
+
+<div block="yv-car-listing-form" ng-init="    ctrl = yvCarListingFormCtrl;     cl = ctrl.carListing   " layout="column" layout-fill="layout-fill" md-propagate-hue="cl.hue">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <legend ng-if="!cl.id">Creando Aviso</legend>
+      <legend ng-if="cl.id">Editando Aviso</legend><span flex="flex"></span>
+      <md-button ng-if="cl.id &amp;&amp; !cl.cancelledBySeller" ng-click="ctrl.cancel($event)" class="md-raised">Dar de baja</md-button>
+    </div>
+  </md-toolbar>
+  <div flex="flex" layout="row">
+    <div flex="25" flex-gt-sm="40" hide-xs="hide-xs" layout="column">
+      <div layout-padding="layout-padding">
+        <md-select ng-model="cl.type" ng-class="{&quot;md-display-1&quot;: ctrl.$mdMedia(&quot;gt-sm&quot;)}" class="margin-bottom-0">
+          <md-option value="CarListing::FullServicePlus">FullServicePlus</md-option>
+          <md-option value="CarListing::FullService">FullService</md-option>
+          <md-option value="CarListing::Classic">Classic</md-option>
+        </md-select>
+      </div>
+      <md-divider></md-divider>
+      <md-content flex="flex" layout-padding="layout-padding">
+        <div ng-switch="cl.type">
+          <div ng-switch-when="CarListing::FullServicePlus" class="fade">
+            <div ng-include="&quot;/components/car_listing/form/info/full_service_plus.html&quot;"></div>
+          </div>
+          <div ng-switch-when="CarListing::FullService" class="fade">
+            <div ng-include="&quot;/components/car_listing/form/info/full_service.html&quot;"></div>
+          </div>
+          <div ng-switch-when="CarListing::Classic" class="fade">
+            <div ng-include="&quot;/components/car_listing/form/info/classic.html&quot;"></div>
+          </div>
+        </div>
+      </md-content>
+    </div>
+    <md-divider></md-divider>
+    <form flex="flex" novalidate="novalidate" angular-validator="angular-validator" angular-validator-submit="ctrl.save($event)" name="carListing" layout="column">
+      <md-tabs flex="flex" layout-fill="layout-fill" md-selected="ctrl.selectedTab" md-border-bottom="md-border-bottom">
+        <md-tab flex="flex" label="Datos del Auto">
+          <md-tab-content layout-fill="layout-fill">
+            <md-content flex="flex" layout-fill="layout-fill" layout-padding="layout-padding" layout="row" layout-wrap="layout-wrap" layout-align="start start">
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33">
+                <label>Marca</label>
+                <yv-select ng-model="cl.car.carBrandId" options-resolver="ctrl.getCarBrands()" option-label="$option.name" option-value="$option.id" search="true" required="true"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33">
+                <label>Modelo</label>
+                <yv-select ng-model="cl.car.carModelId" options-resolver="ctrl.getCarModels()" resolve-options-on="cl.car.carBrandId" option-label="$option.name" option-value="$option.id" disabled="!cl.car.carBrandId" search="true" required="true"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33">
+                <label>Versión</label>
+                <yv-select ng-model="cl.car.carVersionId" options-resolver="ctrl.getCarVersions()" resolve-options-on="[cl.car.carModelId, cl.car.carBrandId]" option-label="$option.name" option-value="$option.id" disabled="!cl.car.carModelId" search="true" required="true" on-change="cl.car.carVersion = $option"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33">
+                <label>Año</label>
+                <yv-select ng-model="cl.car.year" options="cl.car.carVersion.years" disabled="!cl.car.carVersion" required="true" debug="true"></yv-select>
+              </md-input-container>
+              <md-input-container flex="50" flex-gt-sm="33" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label>Kilometraje</label>
+                <input ng-model="cl.car.mileage" type="number"/>
+              </md-input-container>
+              <md-input-container flex="50" flex-gt-sm="33" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label>Precio</label>
+                <input ng-model="cl.price" type="number"/>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label translate="translate">Color</label>
+                <yv-select ng-model="cl.car.color" options="ctrl.carColors" option-value="$option.value" option-label="$option.label"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50" flex-gt-sm="33" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label>Número de puertas</label>
+                <yv-select ng-model="cl.car.doorsQuantity" options="[1,2,3,4,5]"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-sm="33" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label>Tipo de combustible</label>
+                <yv-select ng-model="cl.car.fuelType" options="ctrl.carFuelTypes" option-value="$option.value" option-label="$option.label"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+                <label>Descripción</label>
+                <textarea ng-model="cl.description"></textarea>
+              </md-input-container>
+            </md-content>
+          </md-tab-content>
+        </md-tab>
+        <md-tab label="Fotos" layout-fill="layout-fill" ng-if="cl.type === &quot;CarListing::Classic&quot;">
+          <md-tab-content layout-fill="layout-fill">
+            <md-content flex="flex" layout-fill="layout-fill" layout="column" layout-padding="layout-padding" hide-gt-xs="hide-gt-xs">
+              <div flex="33" layout="row" layout-padding="layout-padding" ng-repeat="x in [0,1,2]">
+                <yv-image-input flex="50" ng-repeat="y in [0,1]" ng-model="cl.car.images" position="x*2+y" max-images="6"></yv-image-input>
+              </div>
+            </md-content>
+            <md-content flex="flex" layout-fill="layout-fill" layout="column" layout-padding="layout-padding" hide-xs="hide-xs">
+              <div flex="50" layout="row" layout-padding="layout-padding" ng-repeat="x in [0,1]">
+                <yv-image-input flex="33" ng-repeat="y in [0,1,2]" ng-model="cl.car.images" position="x*3+y" max-images="6"></yv-image-input>
+              </div>
+            </md-content>
+          </md-tab-content>
+        </md-tab>
+        <md-tab label="Datos personales">
+          <md-tab-content layout-fill="layout-fill">
+            <md-content flex="flex" layout-fill="layout-fill" layout-padding="layout-padding" layout="row" layout-wrap="layout-wrap" layout-align="start start">
+              <md-input-container flex="50">
+                <label>Nombre</label>
+                <input ng-model="cl.seller.firstName"/>
+              </md-input-container>
+              <md-input-container flex="50">
+                <label>Apellido</label>
+                <input ng-model="cl.seller.lastName"/>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50">
+                <label>Celular</label>
+                <input ng-model="cl.seller.cellPhoneNumber" required="required"/>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50">
+                <label>Email</label>
+                <input ng-model="cl.seller.email" type="email" required="required"/>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50">
+                <label>Provincia</label>
+                <yv-select ng-model="cl.seller.location.province" options="ctrl.provinces"></yv-select>
+              </md-input-container>
+              <md-input-container flex="100" flex-gt-xs="50">
+                <label>Localidad</label>
+                <input ng-model="cl.seller.location.locality"/>
+              </md-input-container>
+            </md-content>
+          </md-tab-content>
+        </md-tab>
+      </md-tabs>
+      <md-toolbar>
+        <div layout="row" layout-align="space-between center" class="md-toolbar-tools">
+          <md-button ng-disabled="ctrl.selectedTab === 0" ng-click="ctrl.prevTab()" class="md-raised">Anterior</md-button><span flex="flex"></span>
+          <md-button ng-if="ctrl.$mdMedia(&quot;gt-xs&quot;) || ctrl.selectedTab &lt; 2" ng-disabled="ctrl.selectedTab === 2" ng-click="ctrl.nextTab()" class="md-raised">Siguiente</md-button>
+          <md-button ng-if="ctrl.$mdMedia(&quot;gt-xs&quot;) || ctrl.selectedTab == 2" type="submit" ng-disabled="carListing.$invalid" class="md-raised">{{ cl.isNew() ? 'Enviar' : 'Actualizar' }}</md-button>
+          <md-tooltip md-direction="top" ng-if="carListing.$invalid"><span translate="translate">Revise el formulario, faltan datos</span></md-tooltip>
+        </div>
+      </md-toolbar>
+    </form>
+  </div>
+</div>

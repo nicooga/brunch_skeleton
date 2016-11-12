@@ -1,0 +1,57 @@
+
+<md-content block="yv-credit-calculator" layout-fill="layout-fill" layout="column" ng-class="{&quot;layout-align-center-center&quot;: !($ctrl.creditRequest.price &gt; 1) || $ctrl.$mdMedia(&quot;gt-sm&quot;)}" ng-form="ng-form" ng-submit="$ctrl.sendForm()">
+  <md-input-container class="margin-30">
+    <label translate="translate">Valor del auto</label>
+    <md-icon md-svg-src="/images/icons/money.svg"></md-icon>
+    <input ng-model="$ctrl.creditRequest.price" type="number" min="0" max="2000000"/>
+  </md-input-container>
+  <div layout-gt-xs="row" ng-if="$ctrl.creditRequest.price &gt; 0">
+    <md-card flex-gt-xs="50" layout="column">
+      <div class="padding-24">
+        <div class="md-subhead no-wrap"><strong>Anticipo 50%: </strong>{{ $ctrl.creditRequest.price / 2 | currency: '$' : 0 }}</div>
+      </div>
+      <md-divider></md-divider>
+      <md-table-container flex="flex">
+        <table md-table="md-table" layout-fill="layout-fill">
+          <thead md-head="md-head">
+            <tr md-row="md-row">
+              <th md-column="md-column" translate="translate">Cuotas</th>
+              <th md-column="md-column" translate="translate">Valor</th>
+            </tr>
+          </thead>
+          <tbody md-body="md-body">
+            <tr md-row="md-row" ng-repeat="              quote in $ctrl.creditQuotes               | orderBy: quote.installments             ">
+              <td md-cell="md-cell">{{:: quote.installments }}</td>
+              <td md-cell="md-cell">{{ $ctrl.installmentAmount(quote) | currency: '$' : 0 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </md-card>
+    <md-card flex-gt-xs="50" layout="column">
+      <md-toolbar>
+        <h2 translate="translate" class="md-toolbar-tools">Consulta</h2>
+      </md-toolbar>
+      <md-content flex="flex" layout="column" layout-padding="layout-padding">
+        <md-input-container>
+          <label translate="translate">Nombre</label>
+          <input ng-model="$ctrl.creditRequest.requester.name" required="required"/>
+        </md-input-container>
+        <md-input-container>
+          <label translate="translate">Email</label>
+          <input ng-model="$ctrl.creditRequest.requester.email" type="email" required="required"/>
+        </md-input-container>
+        <md-input-container>
+          <label translate="translate">Celular</label>
+          <input ng-model="$ctrl.creditRequest.requester.cellPhoneNumber" required="required"/>
+        </md-input-container>
+        <md-input-container flex="flex">
+          <label translate="translate">Mensaje</label>
+          <textarea ng-model="$ctrl.creditRequest.message"></textarea>
+        </md-input-container>
+      </md-content>
+      <md-button translate="translate" type="submit" ng-click="$ctrl.sendForm()" ng-disabled="$ctrl.saving" class="md-primary md-raised">Enviar</md-button>
+    </md-card>
+  </div>
+  <h1 translate="translate" class="md-subhead padding-30 text-align-center">Los creditos son otorgados por entidades financieras autorizadas por el B.C.R.A</h1>
+</md-content>

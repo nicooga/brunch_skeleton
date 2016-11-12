@@ -1,0 +1,20 @@
+
+<div class="padding-16">
+  <div translate="translate" class="md-title margin-bottom-5">Datos de contacto</div>
+  <div ng-if="$ctrl.carListing.displayType === &quot;Classic&quot;" class="layout-padding-bottom-5px">
+    <div layout="row">
+      <div translate="translate" class="md-body-2">Teléfono</div><span flex="flex"></span><span ng-bind="        $ctrl.carlisting.seller.cellphonenumber ||        $ctrl.carlisting.seller.phonenumber       "></span>
+    </div>
+    <div layout="row">
+      <div translate="translate" class="md-body-2">Email</div><span flex="flex"></span><span ng-bind="$ctrl.carlisting.seller.email"></span>
+    </div>
+  </div>
+  <div ng-if="$ctrl.carListing.displayType !== &quot;Classic&quot;" class="layout-padding-bottom-5px">
+    <div layout="row">
+      <div translate="translate" class="md-body-2">Teléfono</div><span flex="flex"></span><span>08101226688</span>
+    </div>
+    <div layout="row">
+      <div translate="translate" class="md-body-2">Email</div><span flex="flex"></span><span>info@yavende.com</span>
+    </div>
+  </div>
+</div>

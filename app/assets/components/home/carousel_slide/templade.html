@@ -1,0 +1,10 @@
+
+<div layout-fill="layout-fill" layout="column" layout-align="center strech">
+  <div flex="60" class="padding-30"><img ng-src="{{:: $ctrl.imageSrc }}" class="object-fit-contain layout-fill"/></div>
+  <div flex="40" elem="slide-caption" layout="column" class="padding-15">
+    <div ng-bind=":: $ctrl.title" class="md-title text-align-center"></div>
+    <md-divider></md-divider>
+    <p ng-bind=":: $ctrl.desc" class="md-headline text-align-center"></p><span flex="flex"></span>
+    <md-button ng-bind=":: $ctrl.buttonText" class="md-primary md-raised"></md-button>
+  </div>
+</div>

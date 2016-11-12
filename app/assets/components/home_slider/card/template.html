@@ -1,0 +1,24 @@
+
+<md-card layout="column">
+  <md-toolbar ng-class="yvHomeSliderCardCtrl.shadeClass">
+    <div class="md-toolbar-tools">
+      <div ng-if="yvHomeSliderCardCtrl.title" ng-bind-html="yvHomeSliderCardCtrl.title" class="md-title"></div>
+    </div>
+  </md-toolbar>
+  <md-card-title flex="none" ng-if="yvHomeSliderCardCtrl.hasAnySubtitle">
+    <md-card-title-text>
+      <div ng-if="yvHomeSliderCardCtrl.subhead" ng-bind-html="yvHomeSliderCardCtrl.subhead" class="md-subhead"></div>
+      <div ng-if="yvHomeSliderCardCtrl.headline" ng-bind-html="yvHomeSliderCardCtrl.headline" class="md-headline"></div>
+    </md-card-title-text>
+  </md-card-title>
+  <md-divider ng-if="yvHomeSliderCardCtrl.hasAnySubtitle"></md-divider>
+  <md-card-content flex="flex" layout="column">
+    <md-list>
+      <md-list-item ng-repeat="i in yvHomeSliderCardCtrl.items" ng-bind-html="i"></md-list-item>
+    </md-list>
+  </md-card-content>
+  <md-card-actions ng-if="yvHomeSliderCardCtrl.$showActions" layout="row" layout-align="end center">
+    <md-button ng-click="yvHomeSliderCardCtrl.goToInfo()" class="md-accent">Lee Mas</md-button>
+    <md-button ng-class="yvHomeSliderCardCtrl.shadeClass" ng-click="yvHomeSliderCardCtrl.goToMain()" class="md-raised md-primary">Empeza ya!</md-button>
+  </md-card-actions>
+</md-card>

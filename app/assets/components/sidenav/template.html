@@ -1,0 +1,31 @@
+
+<md-sidenav md-component-id="main-sidenav" md-whiteframe="5" class="md-sidenav-left">
+  <md-toolbar md-theme="grey" md-whiteframe="1" class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <md-button-md-icon-button ng-click="$ctrl.close()">
+        <md-icon md-svg-src="/images/icons/remove.svg"></md-icon>
+      </md-button-md-icon-button>
+    </div>
+  </md-toolbar>
+  <md-list class="padding-0">
+    <md-list-item ui-sref="home" ng-click="$ctrl.close()">
+      <div translate="translate" class="md-title">INICIO</div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ui-sref="carListings.index" ng-click="$ctrl.close()">
+      <div translate="translate" class="md-title">VER AUTOS</div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ui-sref="carListing.typePreselector" ng-click="$ctrl.close()">
+      <div translate="translate" class="md-title">PUBLICAR</div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ui-sref="creditCalculator" ng-click="$ctrl.close()">
+      <div translate="translate" class="md-title">CRÉDITOS</div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item ui-sref="insurance" ng-click="$ctrl.close()">
+      <div translate="translate" class="md-title">SEGUROS</div>
+    </md-list-item>
+  </md-list>
+</md-sidenav>

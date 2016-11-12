@@ -1,0 +1,17 @@
+
+<yv-carousel layout-fill="layout-fill" fill-container="$ctrl.fillContainer" current-index="$ctrl.currentIndex" expose-controller-on="$ctrl.$yvCarousel" class="position-relative yv-car-listing-carousel">
+  <slick arrows="false" dots="false">
+    <div layout-fill="layout-fill" ng-repeat="image in $ctrl.carListing.car.images" class="full-height position-relative">
+      <yv-panorama-preview ng-if="image.isPanorama" src="image.file.url" layout-fill="layout-fill"></yv-panorama-preview><img ng-if="!image.isPanorama" ng-src="{{:: image.file.url }}" layout-fill="layout-fill" class="object-fit-contain"/>
+    </div>
+  </slick>
+  <div layout="row" layout-align="space-between center" class="yv-car-listing-carousel__controls">
+    <div class="yv-car-listing-carousel__blackbox md-body-2">{{ $ctrl.$yvCarousel.currentIndex + 1 }}/{{ $ctrl.imagesLength }} FOTOS</div>
+    <div ng-bind="$ctrl.carListing.displayType" hide-xs="hide-xs" class="yv-car-listing-carousel__blackbox md-body-2"></div>
+    <yv-stars-input ng-model="$ctrl.carListing.car.clinicExam.averageScore" hide-xs="hide-xs"></yv-stars-input><span flex="flex"></span>
+    <md-button ng-click="$event.stopPropagation(); $ctrl.showGallery()" ng-if="$ctrl.showGalleryButton" class="transparent-button square-icon-button">
+      <md-tooltip md-direction="bottom">Ver en pantalla completa</md-tooltip>
+      <md-icon md-svg-src="/images/icons/fullscreen.svg" class="white-icon"></md-icon>
+    </md-button>
+  </div>
+</yv-carousel>

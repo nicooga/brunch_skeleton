@@ -1,0 +1,16 @@
+
+<md-toolbar md-theme="grey" block="yv-main-toolbar" class="md-hue-3 md-whiteframe-z1">
+  <div layout="row" class="md-toolbar-tools">
+    <md-button ng-click="$yvMainToolbar.$mdSidenav(&quot;main-sidenav&quot;).open()" class="md-icon-button">
+      <md-icon md-svg-src="/images/icons/menu.svg"></md-icon>
+    </md-button>
+    <div elem="brand-image" hide-xs="hide-xs"><img src="/images/logo--horizontal.png" ui-sref="home"/></div><span flex="flex"></span>
+    <div layout="row" hide-xs="hide-xs">
+      <md-button ui-sref="carListings.index" ui-sref-options="{reload: true}" translate="translate">Ver Autos</md-button>
+      <md-button ui-sref="carListings.typePreselector" ui-sref-options="{reload: true}" md-theme="default" translate="translate" class="md-primary">Publicar</md-button>
+      <md-button ui-sref="creditCalculator" translate="translate">Créditos</md-button>
+      <md-button ui-sref="insurance" translate="translate">Seguros</md-button>
+    </div>
+    <yv-call-center-number></yv-call-center-number>
+  </div>
+</md-toolbar>

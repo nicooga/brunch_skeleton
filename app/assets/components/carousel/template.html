@@ -1,0 +1,18 @@
+
+<div block="yv-carousel" layout="column" layout-align="center center" ng-if="$yvCarousel.showImagesContainer" ng-class="{&quot;layout-fill&quot;: $yvCarousel.fillContainer}">
+  <div ng-transclude="ng-transclude" layout-fill="layout-fill"></div>
+  <div ng-if=":: $yvCarousel.navigationType === &quot;minimal&quot;" layout="row" class="absolute-top full-width">
+    <md-button ng-click="$yvCarousel.prev()" class="square-icon-button transparent-button margin-right-0">
+      <md-icon md-svg-src="/images/icons/arrow_left.svg" class="white-icon"></md-icon>
+    </md-button>
+    <md-button ng-click="$yvCarousel.next()" class="transparent-button square-icon-button margin-left-0">
+      <md-icon md-svg-src="/images/icons/arrow_right.svg" class="white-icon"></md-icon>
+    </md-button>
+  </div>
+  <md-button elem="arrow" mod-once="left" ng-click="$yvCarousel.prev()" ng-if=":: !$yvCarousel.navigationType" class="square-icon-button transparent-button">
+    <md-icon md-svg-src="/images/icons/arrow_left.svg" class="white-icon"></md-icon>
+  </md-button>
+  <md-button elem="arrow" mod-once="right" ng-click="$yvCarousel.next()" ng-if=":: !$yvCarousel.navigationType" class="transparent-button square-icon-button">
+    <md-icon md-svg-src="/images/icons/arrow_right.svg" class="white-icon"></md-icon>
+  </md-button>
+</div>

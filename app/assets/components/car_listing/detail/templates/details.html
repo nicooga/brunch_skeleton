@@ -1,0 +1,23 @@
+
+<div layout="column" class="  padding-16   layout-padding-bottom-5 ">
+  <div layout="row">
+    <div translate="translate" class="md-body-2">Año</div><span flex="flex"></span>
+    <div ng-bind="car.year" class="md-body-1"></div>
+  </div>
+  <div layout="row">
+    <div translate="translate" class="md-body-2">Kilometraje</div><span flex="flex"></span>
+    <div ng-bind="car.mileage | mileage" class="md-body-1"></div>
+  </div>
+  <div layout="row">
+    <div translate="translate" class="md-body-2">Tipo de combustible</div><span flex="flex"></span>
+    <div ng-bind="car.fuelType" translate="translate" class="md-body-1"></div>
+  </div>
+  <div layout="row">
+    <div translate="translate" class="md-body-2">Número de puertas</div><span flex="flex"></span>
+    <div ng-bind="car.doorsQuantity" translate="translate" class="md-body-1"></div>
+  </div>
+  <div layout="row">
+    <div translate="translate" class="md-body-2">Ubicación</div><span flex="flex"></span>
+    <div ng-bind="car.showLocation.shortDesc" class="md-body-1"></div>
+  </div>
+</div>

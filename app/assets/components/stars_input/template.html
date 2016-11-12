@@ -1,0 +1,2 @@
+<span ng-repeat="starType in $ctrl.stars track by $index">
+  <md-icon ng-if="$ctrl.shouldShowStar(starType)" ng-attr-md-svg-src="/images/icons/star_{{:: starType }}.svg" class="drop-shadow-icon"></md-icon></span>

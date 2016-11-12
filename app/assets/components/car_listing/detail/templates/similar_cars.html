@@ -1,0 +1,7 @@
+
+<div layout="column" elem="similar-cars" class="padding-16">
+  <h1 translate="translate" class="md-title margin-0 margin-bottom-5">Autos Similares</h1>
+  <div layout="row" class="margin-0">
+    <div flex="33" ng-repeat="carListing in $ctrl.similars" ui-sref="carListings.show({id: carListing.id})" elem="similar-cars-item" md-whiteframe="2"><img layout-fill="layout-fill" ng-src="{{:: carListing.car.images[0].file.url }}" class="object-fit-cover"/></div>
+  </div>
+</div>

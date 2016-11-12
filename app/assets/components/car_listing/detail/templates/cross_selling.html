@@ -1,0 +1,13 @@
+
+<div layout="column" class="yv-layout-padding-16">
+  <h1 translate="translate" class="md-title margin-bottom-0">Autos Similares</h1>
+  <yv-carousel elem="similar-cars">
+    <slick arrows="false">
+      <div ng-repeat="chunk in $ctrl.similars">
+        <div layout="row">
+          <div ng-repeat="carListing in chunk" flex="33" md-whiteframe="1"><img layout-fill="layout-fill" ng-src="{{:: carListing.car.images[0].file.url }}" class="object-fit-contain"/></div>
+        </div>
+      </div>
+    </slick>
+  </yv-carousel>
+</div>

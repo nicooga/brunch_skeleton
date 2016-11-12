@@ -1,0 +1,7 @@
+
+<md-toolbar md-whiteframe="1" ng-class="{&quot;font-size-15&quot;: $ctrl.$mdMedia(&quot;xs&quot;)}" md-theme="grey">
+  <div class="md-toolbar-tools"><span layout="column"><span><span>{{:: car.carBrand.name }} {{:: car.carModel.name }}</span><span hide-xs="hide-xs" hide-sm="hide-sm"> {{:: car.year }}</span></span>
+      <div class="md-subheader">{{:: car.carVersion.name }}</div></span><span flex="flex" hide-xs="hide-xs"></span>
+    <div hide-xs="hide-xs" ng-bind=":: $ctrl.carListing.price | currency : &quot;$&quot; : 0 " class="md-display-1"></div>
+  </div>
+</md-toolbar>

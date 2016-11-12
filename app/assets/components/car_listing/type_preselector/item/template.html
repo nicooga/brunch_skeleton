@@ -1,0 +1,9 @@
+
+<div block="yv-car-listing-type-preselector-item" layout-fill="layout-fill" layout="row" ng-init="ctrl = yvCarListingTypePreselectorItemCtrl" ng-click="ctrl.goToMain()" md-ink-ripple="md-ink-ripple" ui-sref="carListings.new({type: ctrl.type})">
+  <div flex="flex">
+    <h3 ng-bind="ctrl.title"></h3>
+    <h4 ng-bind="ctrl.subtitle"></h4>
+    <p ng-bind="ctrl.desc"></p>
+  </div>
+  <md-icon md-svg-src="/images/icons/arrow_right.svg"></md-icon>
+</div>

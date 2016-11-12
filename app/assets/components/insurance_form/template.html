@@ -1,0 +1,81 @@
+
+<div block="yv-insurance-form" layout-fill="layout-fill" layout="column">
+  <md-toolbar>
+    <h2 class="md-toolbar-tools">Consultando seguros</h2>
+  </md-toolbar>
+  <div flex="flex" layout-gt-xs="row">
+    <md-content flex-sm="25" flex-gt-sm="50" layout-padding="layout-padding">
+      <p translate="translate">Muy pronto vas a encontrar acá todo lo que estás buscando sobre créditos para tu auto usado</p>
+      <p translate="translate">Dejános tus datos y te enviaremos información lo más pronto posible</p>
+    </md-content>
+    <md-divider></md-divider>
+    <form novalidate="novalidate" angular-validator="angular-validator" angular-validator-submit="$ctrl.submit()" name="$ctrl.insuranceForm" flex="flex" flex-sm="75" flex-gt-sm="50" layout="column">
+      <md-tabs elem="tabs" flex="flex" md-border-bottom="md-border-bottom" md-selected="$ctrl.selectedTab">
+        <md-tab label="Datos personales">
+          <md-tab-content layout="row" layout-align="start start" layout-wrap="layout-wrap" layout-padding="layout-padding" yv-hide-toolbar-on-scroll="yv-hide-toolbar-on-scroll">
+            <md-input-container flex="50">
+              <label translate="translate">Nombre</label>
+              <input ng-model="$ctrl.contactForm.userFirstName" required="required"/>
+            </md-input-container>
+            <md-input-container flex="50">
+              <label translate="translate">Apellido</label>
+              <input ng-model="$ctrl.contactForm.userLastName" required="required"/>
+            </md-input-container>
+            <md-input-container flex="100">
+              <label translate="translate">Email</label>
+              <input ng-model="$ctrl.contactForm.userEmail" type="email" required="required"/>
+            </md-input-container>
+            <md-input-container flex="20" flex-gt-xs="10">
+              <label translate="translate">Edad</label>
+              <input ng-model="$ctrl.contactForm.userAge" type="number" required="required"/>
+            </md-input-container>
+            <md-input-container flex="80" flex-gt-xs="40">
+              <label translate="translate">Dni</label>
+              <input ng-model="$ctrl.contactForm.userDni" required="required"/>
+            </md-input-container>
+            <md-input-container flex="100" flex-gt-xs="50">
+              <label translate="translate">Celular</label>
+              <input ng-model="$ctrl.contactForm.userCellPhoneNumber" required="required"/>
+            </md-input-container>
+            <md-input-container flex="100" flex-gt-xs="50">
+              <label translate="translate">Provincia</label>
+              <yv-select ng-model="$ctrl.contactForm.userProvince" options="$ctrl.provinces" search="true" required="true"></yv-select>
+            </md-input-container>
+            <md-input-container flex="100" flex-gt-xs="50">
+              <label translate="translate">Localidad</label>
+              <input ng-model="$ctrl.contactForm.userLocality" required="required"/>
+            </md-input-container>
+            <md-input-container flex="100">
+              <label translate="translate">Dirección</label>
+              <input ng-model="$ctrl.contactForm.userAddress" required="required"/>
+            </md-input-container>
+          </md-tab-content>
+        </md-tab>
+        <md-tab label="Datos del auto">
+          <md-tab-content layout="row" layout-wrap="layout-wrap" layout-padding="layout-padding" layout-align="start start">
+            <md-input-container flex="100">
+              <label translate="translate">Marca</label>
+              <yv-select ng-model="$ctrl.contactForm.carBrandId" options-resolver="$ctrl.getCarBrands()" option-label="$option.name" option-value="$option.id" search="true" required="true"></yv-select>
+            </md-input-container>
+            <md-input-container flex="100">
+              <label translate="translate">Modelo</label>
+              <yv-select ng-model="$ctrl.contactForm.carModelId" options-resolver="$ctrl.getCarModels()" option-label="$option.name" option-value="$option.id" resolve-options-on="$ctrl.contactForm.carBrandId" search="true" disabled="!$ctrl.contactForm.carBrandId" required="true"></yv-select>
+            </md-input-container>
+            <md-input-container flex="100">
+              <label translate="translate">Año</label>
+              <input ng-model="$ctrl.contactForm.carYear" type="number" required="required"/>
+            </md-input-container>
+          </md-tab-content>
+        </md-tab>
+      </md-tabs>
+      <md-toolbar>
+        <div layout="row" layout-align="space-between center" class="md-toolbar-tools">
+          <md-button ng-disabled="$ctrl.selectedTab === 0" ng-click="$ctrl.selectedTab = 0" class="md-raised">Anterior</md-button><span flex="flex"></span>
+          <md-button ng-if="$ctrl.$mdMedia(&quot;gt-xs&quot;) || $ctrl.selectedTab &lt; 1" ng-disabled="$ctrl.selectedTab === 1" ng-click="$ctrl.selectedTab = 1" class="md-raised">Siguiente</md-button>
+          <md-button ng-if="$ctrl.$mdMedia(&quot;gt-xs&quot;) || $ctrl.selectedTab == 1" type="submit" ng-disabled="$ctrl.insuranceForm.$invalid" class="md-raised">Enviar</md-button>
+          <md-tooltip md-direction="top" ng-if="$ctrl.insuranceForm.$invalid"><span translate="translate">Revise el formulario, faltan datos</span></md-tooltip>
+        </div>
+      </md-toolbar>
+    </form>
+  </div>
+</div>

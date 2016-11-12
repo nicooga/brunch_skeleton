@@ -1,0 +1,10 @@
+
+<md-card block="yv-car-listing-card" ng-init="car = $ctrl.carListing.car" ui-sref="carListings.show({id: $ctrl.carListing.id})">
+  <div elem="image-wrapper"><img elem="image" ng-src="{{:: $ctrl.carListing.car.images[0].file.url }}"/></div>
+  <md-card-content><span class="md-title">{{:: car.carBrand.name }} {{:: car.carModel.name }} {{:: car.year }}</span>
+    <div class="md-subtitle">
+      <div>{{:: car.mileage | number }} Km. - Almagro</div>
+    </div>
+    <div>{{:: $ctrl.carListing.price | currency : '$' : 0 }}</div>
+  </md-card-content>
+</md-card>

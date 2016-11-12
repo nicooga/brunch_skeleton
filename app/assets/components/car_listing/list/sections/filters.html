@@ -1,0 +1,64 @@
+
+<md-sidenav md-disable-backdrop="md-disable-backdrop" md-component-id="filters" md-whiteframe="4" layout="column" class="md-sidenav-right">
+  <md-toolbar>
+    <div layout="row" class="md-toolbar-tools">
+      <h1 translate="translate">Filtros</h1><span flex="flex"></span>
+      <md-button ng-click="ctrl.toggleFilters()" class="md-icon-button md-primary white-icon">
+        <md-tooltip md-direction="left">Filtros</md-tooltip>
+        <md-icon md-svg-src="/images/icons/remove.svg"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <form flex="flex" layout="column" ng-submit="ctrl.search({redirect: true})">
+    <md-content flex="flex" layout="row" layout-wrap="layout-wrap" layout-padding="layout-padding" layout-align="start start" class="md-no-errors-spacer">
+      <md-label flex="100">Precio</md-label>
+      <md-input-container flex="50">
+        <label translate="translate">Mayor a</label>
+        <md-icon md-svg-src="/images/icons/money.svg"></md-icon>
+        <input ng-model="ctrl.queryParams.priceGteq" type="number"/>
+      </md-input-container>
+      <md-input-container flex="50">
+        <label translate="translate">Menor a</label>
+        <md-icon md-svg-src="/images/icons/money.svg"></md-icon>
+        <input ng-model="ctrl.queryParams.priceLteq" type="number"/>
+      </md-input-container>
+      <md-label flex="100">Kilometraje</md-label>
+      <md-input-container flex="50">
+        <label translate="translate">Mayor a</label>
+        <input ng-model="ctrl.queryParams.carMileageGteq" type="number"/>
+      </md-input-container>
+      <md-input-container flex="50">
+        <label translate="translate">Menor a</label>
+        <input ng-model="ctrl.queryParams.carMileageLteq" type="number"/>
+      </md-input-container>
+      <md-label flex="100">Año</md-label>
+      <md-input-container flex="50">
+        <label translate="translate">Desde</label>
+        <input ng-model="ctrl.queryParams.carYearGteq" type="number"/>
+      </md-input-container>
+      <md-input-container flex="50">
+        <label translate="translate">Hasta</label>
+        <input ng-model="ctrl.queryParams.carYearLteq" type="number"/>
+      </md-input-container>
+      <md-input-container flex="100">
+        <label translate="translate">Color</label>
+        <yv-select ng-model="ctrl.queryParams.carColor" options="ctrl.carColors" option-value="$option.value" option-label="$option.label"></yv-select>
+      </md-input-container>
+      <md-input-container flex="100">
+        <label translate="translate">Número de puertas</label>
+        <yv-select ng-model="ctrl.queryParams.carDoorsQuantity" options="[1,2,3,4,5]"></yv-select>
+      </md-input-container>
+      <md-input-container flex="100">
+        <label translate="translate">Tipo de combustible</label>
+        <yv-select ng-model="ctrl.queryParams.carFuelType" options="ctrl.carFuelTypes" option-value="$option.value" option-label="$option.label"></yv-select>
+      </md-input-container><span flex="flex"></span>
+    </md-content>
+    <md-divider></md-divider>
+    <div layout="column" layout-gt-xs="row">
+      <md-button flex="flex" ng-click="ctrl.resetSearch()" translate="translate">Limpiar Filtros</md-button>
+      <md-button flex="flex" type="submit" ng-disabled="ctrl.saving" class="md-primary md-raised white-icon"><span translate="translate">Buscar</span>
+        <md-icon md-svg-src="/images/icons/search.svg"></md-icon>
+      </md-button>
+    </div>
+  </form>
+</md-sidenav>
